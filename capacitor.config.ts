@@ -2,11 +2,11 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'contador-tabs',
+  appName: 'App de pago Toaquiza 😼',
   webDir: 'www',
   plugins: {
     SplashScreen: {
-      launchShowDuration: 2000,
+      launchShowDuration: 3000,
       launchAutoHide: true,
       backgroundColor: '#FFFFFF',
       androidScaleType: 'CENTER_CROP',
