@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Datos
+      Compra de productos 😼
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +11,7 @@
     <ion-input 
       label="Nombre"
       labelPlacement="stacked"
-      placeholder="Escribe tu nombre"
+      placeholder="Escribe el nombre del producto"
       [(ngModel)]="nombre">
       
     </ion-input>
@@ -19,40 +19,20 @@
 
   <ion-item>
     <ion-input 
-      label="Ciudad"
+      label="Precio Unitario"
       labelPlacement="stacked"
-      placeholder="Escribe tu ciudad"
-      [(ngModel)]="ciudad">   
+      placeholder="Escribe el precio unitario"
+      [(ngModel)]="precioUnitario">   
     </ion-input>
   </ion-item>
   
   <div style="text-align: center; margin-top: 30px;">
-    <h2>Contador Toa 😼</h2>
-    <h1 style="font-size: 64px;">{{contador}}</h1>
+    <h2>CANTIDAD 😼</h2>
+    <h1 style="font-size: 64px;">{{cantidad}}</h1>
     
     <ion-button 
       color="danger",
-      [disabled]="contador==0"
-      (click)="disminuir()">
-       - Disminuir -
-    </ion-button>
-    <ion-button (click)="aumentar()">
-       - Aumentar -
-    </ion-button>
-    <ion-button 
-      expand="block"
-      color="medium",
-      (click)="reiniciar()">
-       - Reiniciar -
-    </ion-button>
-  </div>
-  <div style="text-align: center; margin-top: 30px;">
-    <h2>Edad 😼</h2>
-    <h1 style="font-size: 64px;">{{edad}}</h1>
-    
-    <ion-button 
-      color="danger",
-      [disabled]="edad==0"
+      [disabled]="cantidad==0"
       (click)="disminuir2()">
        - Disminuir -
     </ion-button>
@@ -68,7 +48,7 @@
   </div>
   <p role="alert">{{ mensaje }}</p>
   <ion-button expand="block" (click)="enviar()">
-    Enviar al resumen
+    Enviar los datos de la compra
   </ion-button>
 
 </ion-content>

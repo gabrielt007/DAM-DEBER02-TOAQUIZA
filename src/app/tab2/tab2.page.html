@@ -1,29 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Resumen
+      Pago de productos 😼
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   @if (datos.enviado()) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        El subtotal recibido es: {{ datos.subtotal() }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Cantidad: {{ datos.cantidad() }}</p>
+      <p>Precio Unitario: {{ datos.precioUnitario() }}</p>
+    </ion-card-content>
+  </ion-card>
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>
-          Hola, {{ datos.nombre() }}, de la ciudad {{datos.ciudad()}}
-        </ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <p>
-          El valor que enviaste es:
-        </p>
-        <h1>{{datos.contador()}}</h1>
-        <p> Tu edad es: {{datos.edad()}}</p>
-      </ion-card-content>
+      <h1 style="text-align: center;">  Pago 😼</h1>
+      <ion-item>
+        <ion-input type="number" label="Dinero Recibido" labelPlacement="stacked" placeholder="Escribe el dinero recibido"
+          [(ngModel)]="dineroRecibido">
+        </ion-input>
+      </ion-item>
+      <p role="alert">{{ mensaje }}</p>
+      <ion-button (click)="calcularTotal()">Calcular Total</ion-button>
     </ion-card>
+    @if (total > 0) {
+      <ion-item>
+        <p>El total con descuento es: {{ total }}</p>
+      </ion-item>
+    }
+    
   }@else {
-    <p>Primero ingresa tus datos y pulsa "Enviar resumen".</p>
+  <p>Primero ingresa tus datos y pulsa "Enviar datos de compra".</p>
   }
 </ion-content>

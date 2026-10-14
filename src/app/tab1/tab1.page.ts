@@ -16,44 +16,40 @@ export class Tab1Page {
   nombre='';
   contador=0;
   mensaje='';
-  ciudad='';
-  edad=0;
+  cantidad=0;
+  precioUnitario = 0.0;
 
   private datos = inject(DatosService);
   private router = inject(Router);
 
-  aumentar(): void {
-    this.contador = this.contador + 2;
-  }
-  disminuir(): void {
-    this.contador = this.contador - 2;
-  }
-  reiniciar(): void {
-    this.contador = 0;
-  }
   aumentar2(): void {
-    this.edad ++;
+    this.cantidad ++;
   }
   disminuir2(): void {
-    this.edad --;
+    this.cantidad --;
   }
   reiniciar2(): void {
-    this.edad = 0;
+    this.cantidad = 0;
   }
+  
   enviar(): void {
     const nombreLimpio = this.nombre.trim();
-    const ciudadLimpia = this.nombre.trim();
-
+    const subtotal = this.cantidad * this.precioUnitario;
+  
     if (!nombreLimpio) {
-      this.mensaje = 'Ingresa tu nombre antes de continuar.';
+      this.mensaje = 'Ingresa el nombre del producto antes de continuar.';
       return;
     }
-    if (!ciudadLimpia) {
-      this.mensaje = 'Ingresa la ciudad antes de continuar.';
+    if (!this.precioUnitario) {
+      this.mensaje = 'Ingresa el precio unitario antes de continuar.';
+      return;
+    }
+    if (this.cantidad <= 0) {
+      this.mensaje = 'Ingresa la cantidad antes de continuar.';
       return;
     }
     this.mensaje='';
-    this.datos.guardar(nombreLimpio, ciudadLimpia, this.contador,this.edad );
+    this.datos.guardar(nombreLimpio, this.cantidad, this.precioUnitario, subtotal );
     this.router.navigateByUrl('/tabs/tab2');
   }
 
